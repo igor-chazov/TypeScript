@@ -12,21 +12,15 @@ export default class Cart {
   }
 
   getAmount(): number {
-    return this._items.reduce((accum, current) => accum + current.price, 0);
+    return this._items.reduce((accum: number, current: Buyable) => accum + current.price, 0);
   }
 
   getAmountDiscounted(discount: number): number {
-    const result = this._items.reduce((accum, current) => accum + current.price, 0);
+    const result = this.getAmount();
     return result - (result * (discount / 100));
   }
 
   removeCart(id: number): void {
-
-    for (let i = 0; i < this._items.length; i += 1) {
-      if (this._items[i].id === id) {
-        this._items.splice(i, 1);
-      }
-    }
-
+    this._items = this._items.filter((item: Buyable) => item.id !== id);
   }
 }

@@ -1,6 +1,8 @@
 {
   "source": {
-    "include": ["src/js"]
+    "include": [
+      "src/js"
+    ]
   },
   "opts": {
     "encoding": "utf8",
